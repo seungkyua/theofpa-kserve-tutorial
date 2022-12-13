@@ -14,10 +14,15 @@ metadata:
   name: "mnist"
 spec:
   predictor:
+    model:
+      modelFormat:
+        name: tensorflow
+        version: "2"
+      storageUri: "gs://kserve/models/mnist"
+      runtime: kserve-tensorflow-serving
     logger:
       mode: all
-    tensorflow:
-      storageUri: "gs://kserve/models/mnist"
+
 ---
 apiVersion: serving.kserve.io/v1beta1
 kind: InferenceService
